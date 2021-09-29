@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .searchContainer{
+            width: 50%;
+            margin: auto;
+        }
+        input{
+            width: 70%;
+            height: 30px;
+        }
+        button{
+            height: 35px;
+            width: 20%;
+            background-color: rgb(235,62,55);
+            color: white;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <div class="searchContainer">
+        <input type="text" id="video" placeholder="search for videos">
+        <button onclick="searchVideos()">search</button>
+    </div>
+  
+    <div id="container">
+
+    </div>
+</body>
+<script>
+    //AIzaSyD79jynlpvzNKlRnxSQqLYpfqXddXy83gU
+    //https://youtube.googleapis.com/youtube/v3/search?part=tesla&key=[YOUR_API_KEY]
+    async function searchVideos(){
+        let video  = document.getElementById("video").value 
+        let container = document.getElementById("container")
+        container.innerHTML = null
+let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${video}&type=video&key=AIzaSyD79jynlpvzNKlRnxSQqLYpfqXddXy83gU&maxResults=20`)
+let data = await res.json()
+for({id:{videoId},} of data.items){
+console.log(videoId)
+let iframe = document.createElement("iframe")
+iframe.src = `https://www.youtube.com/embed/${videoId}`
+iframe.allow = `fullscreen`
+    container.append(iframe)
+    
+}
+
+    }
+//
+</script>
+</html>
