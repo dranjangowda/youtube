@@ -7,7 +7,7 @@
     <title>Document</title>
     <style>
         body{
-            background-color: grey;
+            /* background-color: grey; */
         }
         .searchContainer{
             width: 50%;
@@ -34,13 +34,28 @@
         iframe{
             margin: 5px;
         }
+        .youtubeLogo{
+            width: 150px;
+            height: 70px;
+            margin-left: 100px;
+        }
+        .navBar{
+            display: flex;
+            flex-wrap: wrap;
+        }
     </style>
 </head>
 <body>
-    <div class="searchContainer">
-        <input type="text" id="video" placeholder="search for videos">
-        <button onclick="searchVideos()">search</button>
-    </div>
+  <div class="navBar">
+    <div class="logoContainer">
+        <img  class="youtubeLogo"src="https://logos-world.net/wp-content/uploads/2020/04/YouTube-Logo-2017-present-700x394.jpg" alt="">
+       </div>
+        <div class="searchContainer">
+           
+            <input type="text" id="video" placeholder="search for videos">
+            <button onclick="searchVideos()">search</button>
+        </div>
+  </div>
   
     <div id="container">
 
